@@ -8,9 +8,9 @@
 [![Latest release](https://img.shields.io/github/v/release/UWorld-Group/uworldantivirus?label=Windows%20%7C%20macOS&logo=github&color=0a7bbd)](https://github.com/UWorld-Group/uworldantivirus/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/UWorld-Group/uworldantivirus/total?label=downloads&color=2ea043)](https://github.com/UWorld-Group/uworldantivirus/releases)
 
-| Windows | macOS | Android | iPhone · iPad |
-|:---:|:---:|:---:|:---:|
-| [**Download**](https://github.com/UWorld-Group/uworldantivirus/releases/latest) | [**DMG**](https://github.com/UWorld-Group/uworldantivirus/releases/latest) (Apple silicon) | [Google Play](https://play.google.com/store/apps/details?id=co.uworld.uworld_vaccine) | [App Store](https://apps.apple.com/app/id6816079514) |
+| Windows | macOS | Linux | Android | iPhone · iPad |
+|:---:|:---:|:---:|:---:|:---:|
+| [**Download**](https://github.com/UWorld-Group/uworldantivirus/releases/latest) | [**DMG**](https://github.com/UWorld-Group/uworldantivirus/releases/latest) (Apple silicon) | [**.deb** · **.tar.gz**](https://github.com/UWorld-Group/uworldantivirus/releases/latest) | [Google Play](https://play.google.com/store/apps/details?id=co.uworld.uworld_vaccine) | [App Store](https://apps.apple.com/app/id6816079514) |
 
 </div>
 
@@ -106,6 +106,24 @@ It is **completely free for both personal and business use**, and speaks **99 la
    ```bash
    shasum -a 256 UWorldAntivirus-<version>-macos-arm64.dmg
    ```
+
+### Linux (self-hosted server · 자체호스팅 서버)
+
+**Requirements · 사양**: Linux with systemd, Node.js 18+, ClamAV. Architecture-independent.
+
+A server/daemon edition with a web dashboard. It runs fully offline, collects no personal data, and generates a strong access key at install time.
+웹 대시보드형 서버/데몬 에디션입니다. 완전 오프라인으로 동작하고 개인정보를 수집하지 않으며, 설치 시 접속 암호키가 자동 발급됩니다.
+
+```bash
+# Debian / Ubuntu
+sudo apt-get install -y clamav clamav-freshclam nodejs
+sudo dpkg -i UWorldAntivirus-<version>-linux.deb
+sudo uworld-vaccine key show          # dashboard access key · 대시보드 접속 키
+# → http://127.0.0.1:8477
+
+# Other distributions
+tar xzf UWorldAntivirus-<version>-linux.tar.gz && cd uworld-vaccine-*-linux && sudo ./install.sh
+```
 
 ### Android · iPhone
 
